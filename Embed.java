@@ -20,26 +20,7 @@ public class Embed
             throw new Exception("File "+ fileName +"Not Found ");
     }//Embed
     
-    String embedIt(String password) throws Exception
-    {
-        BufferedImage bi;
-        bi = ImageIO.read(fImage);
-
-        int w, h;
-        w = bi.getWidth();//w
-        h = bi.getHeight();//h
-
-        //size check
-        long capacity = (long)w * h ;
-        long need = fFile.length() + HeaderManager.HEADER_LENGTH;
-
-        if(capacity < need)
-            throw new Exception("File Too Large, Embedding Not Possible");
-
-        WritableRaster wrstr = bi.getRaster();
-        int x, y;
-        int r,g,b;
-        
+   
         FileInputStream fin = new FileInputStream(fFile);
         int data= 0;
         int arr[];
